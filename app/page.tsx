@@ -1,74 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
-
-interface DonationCity {
-  id: string;
-  name: string;
-  donationCount: number;
-}
+import Map from "../public/LandingMap.svg?url";
 
 export default function Home() {
-  const [cities, setCities] = useState<DonationCity[]>([]);
-  const [expandedCityId, setExpandedCityId] = useState<string | null>(null);
+  const [counter, setCounter] = useState<number>(499.005);
+  const router = useRouter();
 
   useEffect(() => {
-    async function fetchCities() {
-      const res = await fetch("/data/db.json");
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await res.json();
-      setCities(data.data);
-    }
-    fetchCities().catch(console.error);
+    const interval = setInterval(() => {
+      setCounter((prevCounter) => prevCounter + 0.001);
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  const toggleCityDetails = (id: string) => {
-    setExpandedCityId(expandedCityId === id ? null : id);
+  const handleCounterClick = () => {
+    router.push("/Hero");
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center lg:items-start min-h-screen bg-[#001f1e] text-white">
-      <div className="w-full lg:w-1/2 flex justify-center p-6">
-        <Image
-          src="/Map.svg"
-          alt="Map"
-          width={600}
-          height={400}
-          className="max-w-full"
-        />
+    <div className="bg-white text-[#113336] min-h-screen flex items-center justify-center">
+      <div className="absolute text-[#113336] pl-[50rem] opacity-85">
+        <Image src={Map} alt="Map" width={424} height={348.95} priority />
       </div>
+      <div className="relative flex flex-col  items-center text-center ">
+        <h2 className="text-5xl font-medium">عدد الراغبين بالتبرع</h2>
 
-      <div className="w-full lg:w-1/2 flex flex-col items-end p-6">
-        <p className="mb-4 text-right text-sm lg:text-base text-gray-300">
-          التالي شرح مفصل لأعداد المتبرعين، حيث تم تقسيمهم إلى فئات استنادًا إلى
-          المدينة ونوع العضو المطروح للتبرع.
-        </p>
-        <div className="w-full lg:w-auto max-h-[400px] overflow-y-auto bg-[#003734] rounded-lg shadow-lg p-4">
-          <ul className="divide-y divide-gray-700">
-            {cities.map((city) => (
-              <li key={city.id} className="py-3 flex flex-col">
-                <div className="flex justify-between items-center">
-                  <span className="text-right text-gray-200">{city.name}</span>
-                  <button
-                    onClick={() => toggleCityDetails(city.id)}
-                    className="ml-2 text-gray-400 hover:text-gray-200"
-                  >
-                    <ChevronDownIcon className="w-5 h-5" />
-                  </button>
-                </div>
-                {expandedCityId === city.id && (
-                  <div className="mt-2 text-sm text-gray-300">
-                    Donation Count:{" "}
-                    <span className="text-white">{city.donationCount}</span>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
+        <div
+          onClick={handleCounterClick}
+          className="text-[#113336] text-[17rem] sm:text-7xl md:text-8xl lg:text-[17rem] font-bold cursor-pointer leading-none"
+        >
+          {counter.toFixed(3)}
         </div>
       </div>
     </div>
