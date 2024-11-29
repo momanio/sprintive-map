@@ -22,16 +22,23 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white text-[#113336] min-h-screen flex items-center justify-center">
-      <div className="absolute text-[#113336] pl-[50rem] opacity-85">
-        <Image src={Map} alt="Map" width={424} height={348.95} priority />
+    <div className="absolute w-[1222px] h-[348.95px] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-[#113336] min-h-screen flex items-center justify-center p-4">
+      <div className="absolute top-0 right-0 bottom-0 left-[65.3%] flex justify-center items-center">
+        <Image
+          src={Map}
+          alt="Map"
+          fill
+          style={{ objectFit: "contain" }}
+          priority
+        />
       </div>
-      <div className="relative flex flex-col  items-center text-center ">
-        <h2 className="text-5xl font-medium">عدد الراغبين بالتبرع</h2>
-
+      <div className="absolute  right-[8.02%] top-[26.65%] bottom-[8.01%] flex flex-col items-start text-left space-y-2 w-[1222px] h-[348.95px]">
+        <h2 className="absolute left-[2.95%] right-[64.89%] top-[0.15%] bottom-[82.65%] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">
+          عدد الراغبين بالتبرع
+        </h2>
         <div
           onClick={handleCounterClick}
-          className="text-[#113336] text-[17rem] sm:text-7xl md:text-8xl lg:text-[17rem] font-bold cursor-pointer leading-none"
+          className="bg-gradient-to-r from-[#178B48] to-[#337398] bg-clip-text text-transparent text-6xl sm:text-7xl md:text-8xl lg:text-[17rem] font-bold cursor-pointer leading-none transition-colors duration-300 hover:text-[#113336]"
         >
           {counter.toFixed(3)}
         </div>

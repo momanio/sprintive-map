@@ -27,8 +27,9 @@ const Hero = () => {
     fetchCities().catch(console.error);
   }, []);
 
-  const handleCityClick = (id: string) => {
+  const handleCityClick = (id: string | null) => {
     setSelectedCity(selectedCity === id ? null : id);
+    console.log("selectedCity", selectedCity);
   };
 
   const selectedCityName = cities.find(
@@ -84,7 +85,10 @@ const Hero = () => {
       </div>
 
       <div className="w-full h-auto pt-16 pb-24 lg:pt-32 flex justify-center relative">
-        <SaudiMap selectedCity={selectedCity} />
+        <SaudiMap
+          selectedCity={selectedCity}
+          handleCityClick={handleCityClick}
+        />
         {selectedCity && (
           <>
             <div className="absolute top-0 left-1/2 w-0.5 h-full bg-[#00102E]"></div>
