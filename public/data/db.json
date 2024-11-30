@@ -780,7 +780,298 @@
       "relationshipNames": ["vid", "parent", "field_media"]
     }
   ],
-
+  "meta": {
+    "title": "Donation: Total donors",
+    "pager": {
+      "id": "none",
+      "count": 0,
+      "configurations": {
+        "offset": 0,
+        "items_per_page": 0
+      }
+    },
+    "style": {
+      "id": "default",
+      "configurations": {
+        "grouping": [],
+        "row_class": "",
+        "default_row_class": true,
+        "uses_fields": false,
+        "wrapper_class": ""
+      }
+    },
+    "row": {
+      "id": "entity:taxonomy_term",
+      "configurations": {
+        "view_mode": "default",
+        "relationship": "none"
+      }
+    },
+    "display": {
+      "taxonomy_term--donation_city": {
+        "default": {
+          "layout": {
+            "id": "ds_1col",
+            "settings": {
+              "classes": {
+                "layout_class": [],
+                "ds_content": []
+              },
+              "wrappers": {
+                "ds_content": "div"
+              },
+              "outer_wrapper": "div",
+              "attributes": "",
+              "link_attribute": "",
+              "link_custom": "",
+              "label": ""
+            }
+          },
+          "fields": [
+            {
+              "id": "taxonomy_term_title",
+              "classes": "",
+              "extra_field": true,
+              "formatter": "taxonomy_term_title_default",
+              "type": "extra_field",
+              "label": "الاسم",
+              "label_display": "above",
+              "settings": {
+                "link": 0,
+                "link class": "",
+                "wrapper": "h2",
+                "class": "",
+                "link_target": null
+              },
+              "relationships": [],
+              "fields": [],
+              "region": "ds_content"
+            },
+            {
+              "id": "langcode",
+              "classes": "",
+              "type": "language",
+              "formatter": "language",
+              "label": "اللغة",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false,
+                "native_language": false
+              },
+              "region": "ds_content"
+            },
+            {
+              "id": "description",
+              "classes": "",
+              "type": "text_long",
+              "formatter": "text_default",
+              "label": "الوصف",
+              "label_display": "hidden",
+              "settings": [],
+              "region": "ds_content"
+            },
+            {
+              "id": "field_media",
+              "classes": "",
+              "type": "entity_reference",
+              "formatter": "entity_reference_entity_view",
+              "label": "Thumbnail",
+              "label_display": "above",
+              "settings": {
+                "view_mode": "default",
+                "link": false
+              },
+              "region": "ds_content"
+            },
+            {
+              "id": "field_text",
+              "classes": "",
+              "type": "string",
+              "formatter": "string",
+              "label": "City ID",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false
+              },
+              "region": "ds_content"
+            },
+            {
+              "id": "field_text1",
+              "classes": "",
+              "type": "string",
+              "formatter": "string",
+              "label": "Total donors",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false
+              },
+              "region": "ds_content"
+            },
+            {
+              "id": "field_provincesid",
+              "classes": "",
+              "type": "string",
+              "formatter": "string",
+              "label": "Provinces ID",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false
+              },
+              "region": "ds_content"
+            }
+          ],
+          "view_mode": "default",
+          "unformatted_fields": {
+            "taxonomy_term_title": {
+              "id": "taxonomy_term_title",
+              "classes": "",
+              "extra_field": true,
+              "formatter": "taxonomy_term_title_default",
+              "type": "extra_field",
+              "label": "الاسم",
+              "label_display": "above",
+              "settings": {
+                "link": 0,
+                "link class": "",
+                "wrapper": "h2",
+                "class": "",
+                "link_target": null
+              },
+              "relationships": [],
+              "fields": [],
+              "region": "ds_content"
+            },
+            "langcode": {
+              "id": "langcode",
+              "classes": "",
+              "type": "language",
+              "formatter": "language",
+              "label": "اللغة",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false,
+                "native_language": false
+              },
+              "region": "ds_content"
+            },
+            "description": {
+              "id": "description",
+              "classes": "",
+              "type": "text_long",
+              "formatter": "text_default",
+              "label": "الوصف",
+              "label_display": "hidden",
+              "settings": [],
+              "region": "ds_content"
+            },
+            "field_media": {
+              "id": "field_media",
+              "classes": "",
+              "type": "entity_reference",
+              "formatter": "entity_reference_entity_view",
+              "label": "Thumbnail",
+              "label_display": "above",
+              "settings": {
+                "view_mode": "default",
+                "link": false
+              },
+              "region": "ds_content"
+            },
+            "field_text": {
+              "id": "field_text",
+              "classes": "",
+              "type": "string",
+              "formatter": "string",
+              "label": "City ID",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false
+              },
+              "region": "ds_content"
+            },
+            "field_text1": {
+              "id": "field_text1",
+              "classes": "",
+              "type": "string",
+              "formatter": "string",
+              "label": "Total donors",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false
+              },
+              "region": "ds_content"
+            },
+            "field_provincesid": {
+              "id": "field_provincesid",
+              "classes": "",
+              "type": "string",
+              "formatter": "string",
+              "label": "Provinces ID",
+              "label_display": "above",
+              "settings": {
+                "link_to_entity": false
+              },
+              "region": "ds_content"
+            },
+            "view_mode": null,
+            "field_settings": null,
+            "layout_settings": null,
+            "vid": null,
+            "parent": null
+          }
+        }
+      }
+    },
+    "view_mode": "default",
+    "exposed_form": {
+      "id": "basic",
+      "configurations": {
+        "submit_type": "on_submit",
+        "submit_button_label": "Apply",
+        "debounce_delay": 500,
+        "reset_button": false,
+        "reset_button_label": "Reset",
+        "exposed_sorts_label": "Sort by",
+        "expose_sort_order": true,
+        "sort_asc_label": "Asc",
+        "sort_desc_label": "Desc",
+        "form_wrapper_class": "views-exposed-form",
+        "filters_wrapper_class": "views-exposed-filters",
+        "filter_element_wrapper_class": "views-exposed-filter",
+        "submit_class": "views-exposed-submit",
+        "reset_class": "views-reset",
+        "sorts_wrapper_class": "views-exposed-sort",
+        "items_per_page_wrapper_class": "views-exposed-items-per-page",
+        "submit_button": "Apply"
+      }
+    },
+    "filters": [],
+    "sort": [],
+    "classes": "",
+    "cache": {
+      "tags": [
+        "config:views.view.donation_total_donors",
+        "taxonomy_term_list",
+        "taxonomy_term:123",
+        "taxonomy_term:122",
+        "taxonomy_term:121",
+        "taxonomy_term:120",
+        "taxonomy_term:119",
+        "taxonomy_term:118",
+        "taxonomy_term:117",
+        "taxonomy_term:116",
+        "taxonomy_term:115",
+        "taxonomy_term:114",
+        "taxonomy_term:113",
+        "taxonomy_term:112",
+        "taxonomy_term:111",
+        "config:jsonapi_extras.settings",
+        "config:jsonapi_resource_config_list",
+        "http_response",
+        "config:core.entity_view_display.taxonomy_term.donation_city.default"
+      ]
+    }
+  },
   "links": {
     "self": {
       "href": "https://admin.scot.gov.sa/ar/jsonapi/views/donation_total_donors/total_donors?langcode=ar&page=0"

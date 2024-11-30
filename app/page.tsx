@@ -18,7 +18,7 @@ export default function Home() {
   }, []);
 
   const handleCounterClick = () => {
-    router.push("/Hero");
+    router.push("/Home");
   };
 
   return (

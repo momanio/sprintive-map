@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
@@ -11,7 +11,7 @@ interface DonationCity {
   name: string;
 }
 
-const Hero = () => {
+const Page = () => {
   const [cities, setCities] = useState<DonationCity[]>([]);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
 
@@ -22,19 +22,18 @@ const Hero = () => {
         throw new Error("Network response was not ok");
       }
       const data = await res.json();
+      console.log("data", data);
       setCities(data.data);
     }
     fetchCities().catch(console.error);
   }, []);
 
   const handleCityClick = (id: string | null) => {
-    setSelectedCity(selectedCity === id ? null : id);
-    console.log("selectedCity", selectedCity);
+    setSelectedCity((prevSelectedCity) =>
+      prevSelectedCity === id ? null : id
+    );
+    console.log("selectedCity", id);
   };
-
-  const selectedCityName = cities.find(
-    (city) => city.id === selectedCity
-  )?.name;
 
   return (
     <div className="flex flex-col lg:flex-row items-center lg:items-start min-h-screen bg-[#113336] text-white">
@@ -88,22 +87,11 @@ const Hero = () => {
         <SaudiMap
           selectedCity={selectedCity}
           handleCityClick={handleCityClick}
+          cities={cities}
         />
-        {selectedCity && (
-          <>
-            <div className="absolute top-0 left-1/2 w-0.5 h-full bg-[#00102E]"></div>
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[#00102E]"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#C34147] rounded-full"></div>
-            {selectedCityName && (
-              <div className="absolute top-1/2  transform -translate-x-1/2 -translate-y-1/2 -mt-3 font-normal text-[#52606D]">
-                {selectedCityName}
-              </div>
-            )}
-          </>
-        )}
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default Page;
